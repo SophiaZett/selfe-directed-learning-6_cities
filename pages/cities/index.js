@@ -1,22 +1,23 @@
 import { cities } from "@/lib/data";
 import Link from "next/link";
-import styled from "styled-components";
-
-// const StyledLi = styled.li`
-//   text-decoration: none;
-// `;
+import { StyledUl, StyledHeader, Container, Button } from "@/styles";
 
 export default function Cities() {
   return (
     <>
-      <h1>Cities</h1>
-      <ul>
-        {cities.map((city) => (
-          <li key={city.id}>
-            <Link href={`/cities/${city.slug}`}>{city.name}</Link>
-          </li>
-        ))}
-      </ul>
+      <Container>
+        <Button>
+          <Link href="../">Home</Link>
+        </Button>
+        <StyledHeader>Cities</StyledHeader>
+        <StyledUl>
+          {cities.map((city) => (
+            <li key={city.id}>
+              <Link href={`/cities/${city.slug}`}>{city.name}</Link>
+            </li>
+          ))}
+        </StyledUl>
+      </Container>
     </>
   );
 }
